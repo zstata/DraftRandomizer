@@ -13,31 +13,31 @@ print("\t2: Alter a past draft class randomization")
 
 decision = int(input())
 
-while(True):
-    # Clear the screen
+# Clear the screen
+os.system("cls")
+
+if decision == 1:
+    random.shuffle(years)
+    print("Your randomized class list is as follows:")
+    print(years)
+
+    print("This one look good? (yes/no)")
+
+    d2 = input()
     os.system("cls")
 
-    if decision == 1:
-        random.shuffle(years)
-        print("Your randomized class list is as follows:")
-        print(years)
-
-        print("This one look good? (yes/no)")
-
-        d2 = input()
+    if d2.startswith('y'):
+        print("Enter a file name: ")
+        name = input()
         os.system("cls")
 
-        if d2.startswith('y'):
-            print("Enter a file name: ")
-            name = input()
-            os.system("cls")
+        name = "saves/" + name + ".txt"
 
-            name = "saves/" + name + ".txt"
-
-            # Write the list to a file
-            f = open(name, "w")
-            f.write(years)
-    elif decision  == 2:
-        print(2)
-    else:
-        print("Invalid input")
+        # Write the list to a file
+        f = open(name, "w+")
+        f.write(str(years))
+        f.close()
+elif decision  == 2:
+    print(2)
+else:
+    print("Invalid input")
