@@ -3,7 +3,7 @@ import os
 
 years = [1960,1965,1965,1969,1970,1974]
 
-for x in range(1964,2023):
+for x in range(1974,2023):
     years.append(x)
 
 
@@ -13,9 +13,10 @@ print("\t2: Alter a past draft class randomization")
 
 decision = int(input())
 
+# Clear the screen
+os.system("cls")
+
 while(True):
-    # Clear the screen
-    os.system("cls")
 
     if decision == 1:
         random.shuffle(years)
@@ -40,7 +41,18 @@ while(True):
             f.close()
             break
     elif decision  == 2:
-        print(2)
+        os.system("cls")
+        print("What is the save name?")
+        name = input(x)
+        os.system("cls")
+
+        name = "saves/" + name + ".txt"
+
+        f = open(name, "r")
+
+        print(f.read())
+
+        f.close()
         break
     else:
         print("Invalid input")
